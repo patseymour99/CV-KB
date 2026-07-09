@@ -17,7 +17,8 @@ education and skills — entirely in the visitor's browser.
 | **Skills, with receipts** | No star ratings — clicking a skill lists the engagements that evidence it, deep-linking into the Impact grid |
 | **CV assistant** | Client-side retrieval chat: tokeniser, synonym canonicalisation, light stemming, bounded-Levenshtein fuzzy matching, weighted keyword + regex-intent scoring, graceful fallback |
 | **Command palette** | `⌘K` / `Ctrl+K` — jump to sections, toggle theme, copy email, ask the assistant |
-| **Extras** | Light/dark theming (system-aware, persisted), vCard download, copy-email, print stylesheet, reduced-motion support |
+| **60-second tour** | Spotlight walkthrough of the page with auto-advance (pauses on hover, arrow-key navigable, ends in the chat) |
+| **Extras** | Light/dark theming with a View Transitions circular reveal, animated chart-line hero, pointer-tracking card glows, scroll progress bar, vCard download, copy-email, print stylesheet, reduced-motion support |
 
 ## Architecture
 

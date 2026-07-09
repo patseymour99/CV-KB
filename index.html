@@ -21,6 +21,8 @@
 </head>
 <body>
 
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <a class="sr-only" href="#overview">Skip to content</a>
 
   <!-- ============================ Header ============================ -->
@@ -53,7 +55,14 @@
   <main>
     <!-- ============================ Hero ============================ -->
     <section class="hero wrap" id="overview" aria-label="Overview">
-      <span class="eyebrow">Open to conversations</span>
+      <div class="hero-bg" aria-hidden="true">
+        <svg viewBox="0 0 1100 420" preserveAspectRatio="xMidYMax slice" focusable="false">
+          <path class="hero-area" d="M0,360 C120,340 180,300 260,300 C340,300 380,250 470,244 C560,238 600,205 690,196 C780,187 820,150 910,132 C990,116 1040,84 1094,64 L1100,420 L0,420 Z"/>
+          <path class="hero-line" d="M0,360 C120,340 180,300 260,300 C340,300 380,250 470,244 C560,238 600,205 690,196 C780,187 820,150 910,132 C990,116 1040,84 1094,64"/>
+          <circle class="hero-dot" cx="1094" cy="64" r="5"/>
+          <circle class="hero-dot-ring" cx="1094" cy="64" r="5"/>
+        </svg>
+      </div>
       <h1 id="hero-name">Blanka Koji</h1>
       <p class="hero-firm"><span id="hero-title">Strategy &amp; Banking Consultant</span> · <span id="hero-firm">Manager, McKinsey &amp; Company</span></p>
       <p class="hero-summary" id="hero-summary"></p>
@@ -69,6 +78,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Ask about Blanka
         </button>
+        <button class="btn btn-ghost" type="button" data-start-tour>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          60-second tour
+        </button>
         <button class="btn btn-ghost" type="button" id="vcard-btn">Download vCard</button>
         <button class="btn btn-ghost" type="button" id="print-btn">Print / PDF</button>
       </div>
@@ -83,7 +96,7 @@
         <span class="section-sub">5+ years, intern to Manager — hover the strip, expand the cards</span>
       </div>
 
-      <div class="card viz-card reveal">
+      <div class="card viz-card reveal" id="career-card">
         <div class="viz-card-head">
           <div>
             <h3 class="viz-title">Career at a glance</h3>
@@ -103,7 +116,7 @@
         <span class="section-sub">Featured engagements — filter by theme, click a skill in the next section to trace evidence</span>
       </div>
 
-      <div class="card viz-card reveal">
+      <div class="card viz-card reveal" id="value-card">
         <div class="viz-card-head">
           <div>
             <h3 class="viz-title">Value identified by engagement</h3>
@@ -182,7 +195,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span>© <span id="year"></span> Blanka Koji · London, UK</span>
-      <span>Press <span class="kbd">⌘K</span> to search · <a href="#" data-open-chat>ask the assistant</a></span>
+      <span>Press <span class="kbd">⌘K</span> to search · <a href="#" data-start-tour>take the tour</a> · <a href="#" data-open-chat>ask the assistant</a></span>
     </div>
   </footer>
 
@@ -224,6 +237,22 @@
         <span><span class="kbd">↑↓</span> navigate</span>
         <span><span class="kbd">↵</span> run</span>
         <span><span class="kbd">esc</span> close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= Guided tour ========================= -->
+  <div class="tour" id="tour" hidden>
+    <div class="tour-ring" id="tour-ring" aria-hidden="true"></div>
+    <div class="tour-card" id="tour-card" role="dialog" aria-label="Guided tour" aria-live="polite">
+      <div class="tour-progress" id="tour-progress" aria-hidden="true"></div>
+      <div class="tour-count" id="tour-count"></div>
+      <h4 class="tour-title" id="tour-title"></h4>
+      <p class="tour-text" id="tour-text"></p>
+      <div class="tour-actions">
+        <button class="btn btn-ghost tour-btn" type="button" id="tour-prev">Back</button>
+        <button class="btn btn-primary tour-btn" type="button" id="tour-next">Next</button>
+        <button class="tour-exit" type="button" id="tour-exit">End tour</button>
       </div>
     </div>
   </div>

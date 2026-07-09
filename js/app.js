@@ -23,15 +23,31 @@
       const saved = localStorage.getItem(this.KEY);
       const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       document.documentElement.setAttribute("data-theme", saved || system);
-      $("#theme-toggle").addEventListener("click", () => this.toggle());
+      $("#theme-toggle").addEventListener("click", (e) => this.toggle(e.clientX, e.clientY));
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
         if (!localStorage.getItem(this.KEY)) this.apply(e.matches ? "dark" : "light");
       });
     },
-    toggle() {
-      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      localStorage.setItem(this.KEY, next);
-      this.apply(next);
+    toggle(cx, cy) {
+      const flip = () => {
+        const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        localStorage.setItem(this.KEY, next);
+        this.apply(next);
+      };
+      // Circular reveal via the View Transitions API — progressive enhancement.
+      if (!document.startViewTransition || reducedMotion()) { flip(); return; }
+      const x = cx || window.innerWidth - 46;
+      const y = cy || 30;
+      const vt = document.startViewTransition(flip);
+      vt.ready
+        .then(() => {
+          const r = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+          document.documentElement.animate(
+            { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
+            { duration: 480, easing: "cubic-bezier(0.4, 0, 0.2, 1)", pseudoElement: "::view-transition-new(root)" }
+          );
+        })
+        .catch(() => {}); // transition skipped — theme still applied
     },
   };
 
@@ -47,7 +63,7 @@
     const row = $("#stat-row");
     PROFILE.stats.forEach((s) => {
       const tile = document.createElement("div");
-      tile.className = "stat-tile";
+      tile.className = "stat-tile glow";
       tile.innerHTML =
         `<div class="stat-value"><span class="stat-number" data-target="${s.value}">0</span></div>` +
         `<div class="stat-label"></div><div class="stat-basis"></div>`;
@@ -200,7 +216,7 @@
     );
     rows.forEach((e) => {
       const card = document.createElement("article");
-      card.className = "impact-card";
+      card.className = "impact-card glow";
       card.id = `eng-${e.id}`;
       card.tabIndex = -1;
       card.innerHTML = `
@@ -481,6 +497,7 @@
       { label: "Go to Skills",      hint: "Section", run: () => go("#skills") },
       { label: "Go to Education",   hint: "Section", run: () => go("#education") },
       { label: "Ask the assistant", hint: "Chat",    run: () => ChatUI.open() },
+      { label: "Start the 60-second tour", hint: "Tour", run: () => Tour.start() },
       { label: "Toggle dark mode",  hint: "Theme",   run: () => Theme.toggle() },
       { label: "Copy email address", hint: "Contact", run: () => copyEmail() },
       { label: "Download vCard",    hint: "Contact", run: () => downloadVCard() },
@@ -595,6 +612,136 @@
     return { init, open: openPalette };
   })();
 
+  /* --------------- Pointer glow + scroll progress (cheap) --------------- */
+  function ambientFX() {
+    document.addEventListener("pointermove", (e) => {
+      const card = e.target.closest?.(".glow");
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    }, { passive: true });
+
+    const bar = $("#scroll-progress");
+    let ticking = false;
+    const update = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = max > 0 ? `${(doc.scrollTop / max) * 100}%` : "0";
+      ticking = false;
+    };
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  }
+
+  /* --------------------------- Guided tour --------------------------- */
+  const Tour = (() => {
+    const STEPS = [
+      { sel: "#stat-row", title: "Impact at a glance", text: "Four headline numbers — and every one traces to a specific CV line, shown under each tile." },
+      { sel: "#career-card", title: "A career in one strip", text: "2018 to today. Colour deepens with seniority; the grey band is her degree. Hover any band for details." },
+      { sel: "#timeline", title: "The full story", text: "Five roles in five years, intern to Manager. Each card expands into quantified highlights." },
+      { sel: "#value-card", title: "Value, visualised", text: "€460M+ identified across featured engagements, in a hand-built chart. Prefer raw numbers? Flip to the table view." },
+      { sel: "#impact-grid", title: "Six featured engagements", text: "Filter by theme — growth strategy, cost & productivity, AI & digital, fintech M&A." },
+      { sel: ".skills-layout", title: "Skills, with receipts", text: "No self-assessed star ratings. Click any skill and it lists the engagements that prove it." },
+      { sel: "#chat-fab", title: "Ask anything", text: "An assistant answers questions about Blanka from her CV — instantly, privately, in your browser.", noScroll: true },
+    ];
+    const STEP_MS = 8000;
+    let i = 0, active = false, timer = null, prevFocus = null;
+    let els = {};
+
+    const target = () => document.querySelector(STEPS[i].sel);
+
+    const placeRing = () => {
+      const t = target();
+      if (!t) return;
+      const r = t.getBoundingClientRect();
+      const pad = 10;
+      Object.assign(els.ring.style, {
+        top: `${r.top - pad}px`,
+        left: `${r.left - pad}px`,
+        width: `${r.width + pad * 2}px`,
+        height: `${r.height + pad * 2}px`,
+      });
+    };
+
+    const armTimer = () => {
+      clearTimeout(timer);
+      els.progress.classList.remove("is-running");
+      if (reducedMotion()) return; // no auto-advance for reduced-motion users
+      void els.progress.offsetWidth; // restart the CSS progress animation
+      els.progress.style.animationDuration = `${STEP_MS}ms`;
+      els.progress.classList.add("is-running");
+      timer = setTimeout(() => (i < STEPS.length - 1 ? goTo(i + 1) : end()), STEP_MS);
+    };
+
+    const goTo = (n) => {
+      i = Math.max(0, Math.min(STEPS.length - 1, n));
+      const step = STEPS[i];
+      const t = target();
+      if (!t) { end(); return; }
+      if (!step.noScroll) t.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "center" });
+      els.count.textContent = `Step ${i + 1} of ${STEPS.length}`;
+      els.title.textContent = step.title;
+      els.text.textContent = step.text;
+      els.prev.disabled = i === 0;
+      els.next.textContent = i === STEPS.length - 1 ? "Open the chat" : "Next";
+      // Let the smooth scroll settle before framing the target.
+      setTimeout(placeRing, step.noScroll || reducedMotion() ? 30 : 420);
+      armTimer();
+    };
+
+    const start = () => {
+      if (active) return;
+      active = true;
+      prevFocus = document.activeElement;
+      if (ChatUI.isOpen()) ChatUI.close();
+      els.root.removeAttribute("hidden");
+      els.next.focus();
+      goTo(0);
+    };
+
+    const end = (openChat) => {
+      if (!active) return;
+      active = false;
+      clearTimeout(timer);
+      els.progress.classList.remove("is-running");
+      els.root.setAttribute("hidden", "");
+      if (openChat) ChatUI.open();
+      else if (prevFocus?.focus) prevFocus.focus();
+    };
+
+    const init = () => {
+      els = {
+        root: $("#tour"), ring: $("#tour-ring"), card: $("#tour-card"),
+        count: $("#tour-count"), title: $("#tour-title"), text: $("#tour-text"),
+        prev: $("#tour-prev"), next: $("#tour-next"), exit: $("#tour-exit"),
+        progress: $("#tour-progress"),
+      };
+      els.prev.addEventListener("click", () => goTo(i - 1));
+      els.next.addEventListener("click", () => (i === STEPS.length - 1 ? end(true) : goTo(i + 1)));
+      els.exit.addEventListener("click", () => end());
+      // Reading the card pauses auto-advance; leaving resumes it.
+      els.card.addEventListener("pointerenter", () => { clearTimeout(timer); els.progress.classList.remove("is-running"); });
+      els.card.addEventListener("pointerleave", () => { if (active) armTimer(); });
+      document.addEventListener("keydown", (e) => {
+        if (!active) return;
+        if (e.key === "Escape") end();
+        if (e.key === "ArrowRight") { e.preventDefault(); i === STEPS.length - 1 ? end(true) : goTo(i + 1); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); goTo(i - 1); }
+      });
+      const reframe = () => { if (active) requestAnimationFrame(placeRing); };
+      window.addEventListener("resize", reframe, { passive: true });
+      window.addEventListener("scroll", reframe, { passive: true });
+      $$("[data-start-tour]").forEach((b) =>
+        b.addEventListener("click", (e) => { e.preventDefault(); start(); })
+      );
+    };
+
+    return { init, start };
+  })();
+
   /* ------------------------- Reveal on scroll ------------------------- */
   function revealOnScroll() {
     if (reducedMotion()) {
@@ -627,6 +774,8 @@
     Theme.init();
     ChatUI.init();
     Palette.init();
+    Tour.init();
+    ambientFX();
     observeStats();
     scrollSpy();
     revealOnScroll();

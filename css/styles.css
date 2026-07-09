@@ -145,19 +145,35 @@ button { font-family: inherit; }
 [data-theme="dark"] #theme-toggle .moon { display: block; }
 
 /* ------------------------------ Hero ------------------------------ */
-.hero { padding: 72px 0 40px; }
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--accent-ink);
-  background: var(--accent-wash); border-radius: 999px; padding: 5px 14px;
+.hero { position: relative; padding: 88px 0 40px; }
+.hero-bg {
+  position: absolute; inset: 0; z-index: -1; overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 30%, transparent 96%);
 }
-.eyebrow::before {
-  content: ""; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--accent);
+.hero-bg svg { width: 100%; height: 100%; }
+.hero-line {
+  fill: none; stroke: var(--accent); stroke-width: 2;
+  stroke-linecap: round; opacity: 0.4;
+  stroke-dasharray: 1800; stroke-dashoffset: 1800;
+  animation: hero-draw 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.2s;
+}
+.hero-area { fill: var(--accent); opacity: 0.05; }
+.hero-dot { fill: var(--accent); opacity: 0; animation: hero-dot-in 0.4s ease-out forwards 2.3s; }
+.hero-dot-ring {
+  fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0;
+  transform-box: fill-box; transform-origin: center;
+  animation: hero-pulse 2.6s ease-out infinite 2.7s;
+}
+@keyframes hero-draw { to { stroke-dashoffset: 0; } }
+@keyframes hero-dot-in { to { opacity: 0.9; } }
+@keyframes hero-pulse {
+  0% { transform: scale(0.5); opacity: 0.55; }
+  70%, 100% { transform: scale(2.6); opacity: 0; }
 }
 .hero h1 {
-  margin: 18px 0 6px;
+  margin: 0 0 6px;
   font-size: clamp(38px, 6.5vw, 62px);
   line-height: 1.04; letter-spacing: -0.03em; font-weight: 700;
 }
@@ -593,6 +609,69 @@ a.meta-chip:hover { border-color: var(--accent); color: var(--accent-ink); }
 }
 #toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
+/* -------------------------- Scroll progress -------------------------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 60;
+  height: 2px; width: 0;
+  background: var(--accent);
+}
+
+/* --------------------- Pointer-tracking card glow --------------------- */
+.glow { position: relative; }
+.glow::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%),
+    var(--accent-wash-strong), transparent 70%);
+  opacity: 0; transition: opacity 0.25s; pointer-events: none;
+}
+.glow:hover::after { opacity: 1; }
+
+/* ---------------------------- Guided tour ---------------------------- */
+.tour[hidden] { display: none; }
+.tour-ring {
+  position: fixed; z-index: 64; pointer-events: none;
+  border: 2px solid var(--accent); border-radius: 18px;
+  box-shadow: 0 0 0 9999px rgba(11, 11, 11, 0.45);
+  transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-theme="dark"] .tour-ring { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6); }
+.tour-card {
+  position: fixed; z-index: 66;
+  left: 50%; bottom: 26px; transform: translateX(-50%);
+  width: min(420px, calc(100vw - 32px));
+  background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: 16px; box-shadow: var(--shadow-2);
+  padding: 18px 20px 16px; overflow: hidden;
+}
+.tour-progress {
+  position: absolute; top: 0; left: 0; height: 3px; width: 0;
+  background: var(--accent); border-radius: 0 2px 2px 0;
+}
+.tour-progress.is-running { animation: tour-tick linear forwards; }
+@keyframes tour-tick { from { width: 0; } to { width: 100%; } }
+.tour-count {
+  font-size: 11.5px; font-weight: 650; letter-spacing: 0.06em;
+  color: var(--accent-ink); text-transform: uppercase;
+}
+.tour-title { margin: 5px 0 4px; font-size: 17px; letter-spacing: -0.01em; }
+.tour-text { margin: 0; font-size: 14px; color: var(--ink-2); }
+.tour-actions { display: flex; gap: 8px; align-items: center; margin-top: 14px; }
+.tour-btn { padding: 7px 14px; font-size: 14px; }
+.tour-btn:disabled { opacity: 0.45; cursor: default; }
+.tour-exit {
+  margin-left: auto; background: none; border: 0; cursor: pointer;
+  color: var(--ink-3); font-size: 13px; font-family: var(--font);
+  padding: 6px 4px;
+}
+.tour-exit:hover { color: var(--ink); }
+
+/* --------------------- Theme circular transition --------------------- */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
 /* ------------------------------ Reveal ------------------------------ */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s, transform 0.5s; }
 .reveal.is-in { opacity: 1; transform: none; }
@@ -617,7 +696,8 @@ a.meta-chip:hover { border-color: var(--accent); color: var(--accent-ink); }
 /* ------------------------------ Print ------------------------------ */
 @media print {
   .site-header, .chat-fab, .chat-panel, .cmdk, .hero-cta, .tl-toggle,
-  .filter-row, .viz-toggle, .site-footer, #toast { display: none !important; }
+  .filter-row, .viz-toggle, .site-footer, #toast,
+  .tour, .scroll-progress, .hero-bg { display: none !important; }
   body { background: #fff; color: #000; }
   .section { padding: 24px 0 0; }
   .card, .tl-card, .impact-card, .stat-tile, .edu-card, .mini-card {

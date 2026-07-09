@@ -411,7 +411,7 @@ const CHAT_KB = [
     intents: [/this (site|website|dashboard|page|app)/, /how (was|is) this (built|made)/, /who (built|made) this/, /tech stack/],
     keywords: { site: 4, website: 5, dashboard: 4, built: 4, made: 3, stack: 4, code: 3, javascript: 4, react: 3, framework: 3 },
     answer:
-      "This dashboard is a **zero-dependency, hand-built single-page app**: semantic HTML, modern CSS (design tokens, light/dark theming) and vanilla JavaScript — no frameworks, no chart libraries, no tracking.\n\nHighlights: custom SVG charts with accessible tooltips and a table view, a command palette (**⌘K**), an evidence-linked skills explorer, and this assistant — a client-side retrieval engine over a structured knowledge base of Blanka's CV. It reflects how she works: **AI-assisted development with Claude Code**, with the structure and quality checks done properly.",
+      "This dashboard is a **zero-dependency, hand-built single-page app**: semantic HTML, modern CSS (design tokens, light/dark theming) and vanilla JavaScript — no frameworks, no chart libraries, no tracking.\n\nHighlights: custom SVG charts with accessible tooltips and a table view, a spotlight-guided **60-second tour**, a command palette (**⌘K**), an evidence-linked skills explorer, and this assistant — a client-side retrieval engine over a structured knowledge base of Blanka's CV. It reflects how she works: **AI-assisted development with Claude Code**, with the structure and quality checks done properly.",
     source: "About this dashboard",
     followups: ["Tell me about her AI work", "Give me a quick summary of her profile"],
   },
