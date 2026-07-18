@@ -18,7 +18,7 @@ const PROFILE = {
 
   // Hero KPI row — every figure traces back to a CV line (see `basis`).
   stats: [
-    { id: "years",   value: 5,    suffix: "+",   label: "Years in strategy consulting", basis: "McKinsey, May 2021 – present" },
+    { id: "years",   value: 5,    suffix: "+",   label: "Years in management consulting", basis: "McKinsey & Company, May 2021 – present" },
     { id: "value",   value: 850,  prefix: "€", suffix: "M+", label: "Value identified across featured engagements", basis: "€300M + €350M + €200M" },
     { id: "roles",   value: 4,    suffix: "",    label: "Promotions in under 5 years", basis: "Intern → Analyst → Senior Analyst → Specialist → Manager" },
   ],
