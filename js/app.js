@@ -640,7 +640,7 @@
   /* --------------------------- Guided tour --------------------------- */
   const Tour = (() => {
     const STEPS = [
-      { sel: "#stat-row", title: "Impact at a glance", text: "Four headline numbers — and every one traces to a specific CV line, shown under each tile." },
+      { sel: "#stat-row", title: "Impact at a glance", text: "Three headline numbers — and every one traces to a specific CV line, shown under each tile." },
       { sel: "#career-card", title: "A career in one strip", text: "2018 to today. Colour deepens with seniority; the grey band is her degree. Hover any band for details." },
       { sel: "#timeline", title: "The full story", text: "Five roles in five years, intern to Manager. Each card expands into quantified highlights." },
       { sel: "#value-card", title: "Value, visualised", text: "€850M+ identified across featured engagements, in a hand-built chart. Prefer raw numbers? Flip to the table view." },

@@ -21,7 +21,6 @@ const PROFILE = {
     { id: "years",   value: 5,    suffix: "+",   label: "Years in strategy consulting", basis: "McKinsey, May 2021 – present" },
     { id: "value",   value: 850,  prefix: "€", suffix: "M+", label: "Value identified across featured engagements", basis: "€300M + €350M + €200M" },
     { id: "roles",   value: 4,    suffix: "",    label: "Promotions in under 5 years", basis: "Intern → Analyst → Senior Analyst → Specialist → Manager" },
-    { id: "fintech", value: 6600, suffix: "+",   label: "Fintechs mapped & screened", basis: "5,000+ database + 1,600 targets" },
   ],
 
   experience: [

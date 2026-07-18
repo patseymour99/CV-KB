@@ -208,7 +208,7 @@ a.meta-chip:hover { border-color: var(--accent); color: var(--accent-ink); }
 /* ---------------------------- Stat row ---------------------------- */
 .stat-row {
   margin-top: 44px;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
 .stat-tile {
   background: var(--surface); border: 1px solid var(--hairline);
@@ -679,6 +679,7 @@ a.meta-chip:hover { border-color: var(--accent); color: var(--accent-ink); }
 /* ---------------------------- Responsive ---------------------------- */
 @media (max-width: 900px) {
   .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .stat-tile:last-child { grid-column: 1 / -1; }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-layout, .edu-grid { grid-template-columns: 1fr; }
   .skill-evidence { position: static; }
