@@ -126,7 +126,7 @@ const ChatEngine = (() => {
   const FALLBACK =
     "I don't have that in Blanka's CV, so I won't guess. I can help with:\n\n" +
     "- Her **experience** at McKinsey and before\n" +
-    "- **Results** — the €460M+ of value identified\n" +
+    "- **Results** — the €850M+ of value identified\n" +
     "- **AI & fintech** work\n" +
     "- **Education**, **skills**, **languages** and **interests**\n" +
     "- **Contact details**\n\n" +

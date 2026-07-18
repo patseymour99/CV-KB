@@ -259,10 +259,10 @@
     Charts.valueTable($("#value-table"), rows);
 
     Charts.careerStrip($("#career-strip"), [
-      { label: "PK Követeléskezelő — Finance Intern", start: "Apr 2020", end: "Apr 2021", startYear: 2020.25, endYear: 2021.25, place: "Budapest", lane: 0 },
+      { label: "PK Követeléskezelő — Finance Analyst", start: "Apr 2020", end: "Apr 2021", startYear: 2020.25, endYear: 2021.25, place: "Budapest", lane: 0 },
       { label: "McKinsey — Analyst → Specialist", start: "May 2021", end: "May 2025", startYear: 2021.33, endYear: 2025.33, place: "Budapest", lane: 0 },
       { label: "McKinsey — Manager", start: "Jun 2025", end: "Present", startYear: 2025.42, endYear: 2026.55, place: "London", lane: 0 },
-      { label: "Corvinus Business School — BSc", start: "Sep 2018", end: "Jan 2022", startYear: 2018.67, endYear: 2022.08, place: "Budapest", lane: 1, muted: true },
+      { label: "Corvinus University of Budapest — BSc", start: "Sep 2018", end: "Jan 2022", startYear: 2018.67, endYear: 2022.08, place: "Budapest", lane: 1, muted: true },
     ], [2018, 2026.6]);
   }
 
@@ -447,6 +447,7 @@
       `EMAIL;TYPE=INTERNET:${PROFILE.email}`,
       `TEL;TYPE=CELL:${PROFILE.phone.replace(/\s/g, "")}`,
       `ADR;TYPE=WORK:;;;London;;;United Kingdom`,
+      `URL:https://${PROFILE.website}`,
       "END:VCARD",
     ].join("\r\n");
     const blob = new Blob([v], { type: "text/vcard" });
@@ -642,7 +643,7 @@
       { sel: "#stat-row", title: "Impact at a glance", text: "Four headline numbers — and every one traces to a specific CV line, shown under each tile." },
       { sel: "#career-card", title: "A career in one strip", text: "2018 to today. Colour deepens with seniority; the grey band is her degree. Hover any band for details." },
       { sel: "#timeline", title: "The full story", text: "Five roles in five years, intern to Manager. Each card expands into quantified highlights." },
-      { sel: "#value-card", title: "Value, visualised", text: "€460M+ identified across featured engagements, in a hand-built chart. Prefer raw numbers? Flip to the table view." },
+      { sel: "#value-card", title: "Value, visualised", text: "€850M+ identified across featured engagements, in a hand-built chart. Prefer raw numbers? Flip to the table view." },
       { sel: "#impact-grid", title: "Six featured engagements", text: "Filter by theme — growth strategy, cost & productivity, AI & digital, fintech M&A." },
       { sel: ".skills-layout", title: "Skills, with receipts", text: "No self-assessed star ratings. Click any skill and it lists the engagements that prove it." },
       { sel: "#chat-fab", title: "Ask anything", text: "An assistant answers questions about Blanka from her CV — instantly, privately, in your browser.", noScroll: true },
