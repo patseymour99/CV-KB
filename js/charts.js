@@ -178,7 +178,7 @@ const Charts = (() => {
     const svg = el("svg", {
       viewBox: `0 0 ${W} ${H}`, class: "viz-svg",
       role: "img",
-      "aria-label": "Career timeline strip from 2018 to present: " +
+      "aria-label": `Career timeline strip from ${Math.ceil(d0)} to present: ` +
         spans.map((s) => (s.start ? `${s.label} ${s.start}–${s.end}` : s.label)).join("; "),
     }, container);
 

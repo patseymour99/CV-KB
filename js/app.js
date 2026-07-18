@@ -262,8 +262,7 @@
       { label: "PK Követeléskezelő — Finance Analyst", start: "Apr 2020", end: "Apr 2021", startYear: 2020.25, endYear: 2021.25, place: "Budapest", lane: 0 },
       { label: "McKinsey — Analyst → Specialist", start: "May 2021", end: "May 2025", startYear: 2021.33, endYear: 2025.33, place: "Budapest", lane: 0 },
       { label: "McKinsey — Manager", start: "Jun 2025", end: "Present", startYear: 2025.42, endYear: 2026.55, place: "London", lane: 0 },
-      { label: "Corvinus University of Budapest — BSc", startYear: 2018.67, endYear: 2022.08, place: "Budapest", lane: 1, muted: true },
-    ], [2018, 2026.6]);
+    ], [2020, 2026.6]);
   }
 
   function wireChartToggle() {
@@ -641,7 +640,7 @@
   const Tour = (() => {
     const STEPS = [
       { sel: "#stat-row", title: "Impact at a glance", text: "Three headline numbers — and every one traces to a specific CV line, shown under each tile." },
-      { sel: "#career-card", title: "A career in one strip", text: "2018 to today. Colour deepens with seniority; the grey band is her degree. Hover any band for details." },
+      { sel: "#career-card", title: "A career in one strip", text: "2020 to today. Colour deepens with seniority. Hover any band for details." },
       { sel: "#timeline", title: "The full story", text: "Five roles in five years, intern to Manager. Each card expands into quantified highlights." },
       { sel: "#value-card", title: "Value, visualised", text: "€850M+ identified across featured engagements, in a hand-built chart. Prefer raw numbers? Flip to the table view." },
       { sel: "#impact-grid", title: "Six featured engagements", text: "Filter by theme — growth strategy, cost & productivity, AI & digital, fintech M&A." },
