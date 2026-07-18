@@ -91,7 +91,7 @@ const PROFILE = {
       metric: { value: 300, unit: "€M", kind: "Revenue uplift" },
       description:
         "Led the project team developing a board-level 5-year strategy: North Star ambition, board KPIs and a tactical implementation roadmap the bank could execute against.",
-      skills: ["Strategic problem solving", "Senior stakeholder communication", "Cross-functional execution"],
+      skills: ["Strategic problem solving", "Senior stakeholder management & communication", "Cross-functional team leadership & execution"],
     },
     {
       id: "kuwait-ai",
@@ -105,7 +105,7 @@ const PROFILE = {
       metric: { value: 30, unit: "%", kind: "Operating-cost saving potential" },
       description:
         "Developed the bank's AI strategy — quantifying value-at-stake and prioritising use cases to develop across the bank, sizing ~20–30% operating-cost savings and ~5–8% revenue-uplift potential to give senior leadership a fact base for investment decisions.",
-      skills: ["Analytical rigour", "Strategic problem solving", "AI & automation"],
+      skills: ["Strategic problem solving", "Data-driven analysis & decision-making"],
     },
     {
       id: "irish-diagnostics",
@@ -119,7 +119,7 @@ const PROFILE = {
       metric: { value: 350, unit: "€M", kind: "Cost opportunity" },
       description:
         "Led the cost & productivity diagnostics workstream of a bank-wide transformation — identified a €350M cost opportunity while independently driving the workplan and aligning CXO-1 stakeholders.",
-      skills: ["Analytical rigour", "Senior stakeholder communication", "Strong ownership"],
+      skills: ["Data-driven analysis & decision-making", "Senior stakeholder management & communication"],
     },
     {
       id: "merchant-acquiring",
@@ -133,7 +133,7 @@ const PROFILE = {
       metric: { value: 200, unit: "€M", kind: "Revenue potential" },
       description:
         "Developed a 5-year merchant-acquiring strategy grounded in comprehensive diagnostics, identifying the strategic moves that unlock €200M in incremental revenue.",
-      skills: ["Strategic problem solving", "Analytical rigour", "Results orientation"],
+      skills: ["Strategic problem solving", "Data-driven analysis & decision-making"],
     },
     {
       id: "uae-fintech",
@@ -147,7 +147,7 @@ const PROFILE = {
       metric: { value: 1600, unit: "", kind: "Targets screened" },
       description:
         "Built a fintech investment strategy on top of a purpose-built database of 1,600 potential targets across sub-sectors, converging on the 20 with the strongest investment fit.",
-      skills: ["Analytical rigour", "Attention to detail", "Results orientation"],
+      skills: ["Data-driven analysis & decision-making"],
     },
     {
       id: "fintech-db",
@@ -161,7 +161,7 @@ const PROFILE = {
       metric: { value: 5000, unit: "", kind: "Startups mapped" },
       description:
         "Managed a cross-functional team building an AI-powered tool covering 5,000+ fintech startups across 40+ sub-sectors — used to identify innovation trends and streamline M&A market scans.",
-      skills: ["Cross-functional execution", "Strong ownership", "AI & automation"],
+      skills: ["Cross-functional team leadership & execution"],
     },
   ],
 
@@ -177,28 +177,20 @@ const PROFILE = {
   // evidence (engagement ids and/or CV lines), surfaced on click.
   skillGroups: [
     {
-      group: "Consulting craft",
+      group: "Core skills",
       skills: [
-        { name: "Strategic problem solving",        evidence: ["north-star", "merchant-acquiring", "kuwait-ai"] },
-        { name: "Analytical rigour",                 evidence: ["irish-diagnostics", "uae-fintech", "kuwait-ai", "merchant-acquiring"] },
-        { name: "Senior stakeholder communication",  evidence: ["north-star", "irish-diagnostics"], note: "Trusted thought partner to C-suite and board-level stakeholders; CXO-1 alignment." },
-        { name: "Cross-functional execution",        evidence: ["fintech-db", "north-star"] },
+        { name: "Strategic problem solving",                     evidence: ["north-star", "merchant-acquiring", "kuwait-ai"] },
+        { name: "Senior stakeholder management & communication", evidence: ["north-star", "irish-diagnostics"], note: "Trusted thought partner to C-suite and board-level stakeholders; CXO-1 alignment." },
+        { name: "Data-driven analysis & decision-making",        evidence: ["irish-diagnostics", "uae-fintech", "kuwait-ai", "merchant-acquiring"], note: "Uses data-driven analysis to inform strategic decisions, prioritisation and execution." },
+        { name: "Cross-functional team leadership & execution",  evidence: ["fintech-db", "north-star"], note: "Led project and cross-functional teams, independently driving workplans." },
       ],
     },
     {
-      group: "Ways of working",
+      group: "Tools",
       skills: [
-        { name: "Strong ownership",     evidence: ["irish-diagnostics", "fintech-db"], note: "Independently drove workplans and stakeholder alignment." },
-        { name: "Attention to detail",  evidence: ["uae-fintech"] },
-        { name: "Results orientation",  evidence: ["merchant-acquiring", "uae-fintech"] },
-      ],
-    },
-    {
-      group: "Tools & technology",
-      skills: [
-        { name: "AI & automation", evidence: ["kuwait-ai", "fintech-db"], note: "AI-assisted workflow automation using Claude Code and Cursor — this dashboard is part of that toolkit." },
-        { name: "MS Excel",        evidence: [], note: "Advanced modelling — diagnostics, valuation and forecasting across engagements." },
-        { name: "PowerPoint",      evidence: [], note: "Board- and C-suite-level storyline and page craft." },
+        { name: "Claude Code & Cursor",   evidence: [], note: "AI-assisted workflow automation — this dashboard (and its assistant) is part of that toolkit." },
+        { name: "MS Excel",               evidence: [], note: "Advanced modelling — diagnostics, valuation and forecasting across engagements." },
+        { name: "PowerPoint & MS Office", evidence: [], note: "Board- and C-suite-level storyline and page craft." },
       ],
     },
   ],
@@ -330,7 +322,7 @@ const CHAT_KB = [
     intents: [/skills?|strengths?|good at|competenc/],
     keywords: { skills: 5, strengths: 5, strong: 3, competencies: 4, qualities: 4, capable: 3, abilities: 4 },
     answer:
-      "Blanka's core strengths, each evidenced by her track record:\n\n- **Strategic problem solving** — North Star and merchant-acquiring strategies worth €500M combined.\n- **Analytical rigour** — €350M cost diagnostic; 1,600-target investment screen.\n- **Senior stakeholder communication** — trusted by C-suite, board and CXO-1 stakeholders.\n- **Strong ownership & cross-functional execution** — independently drove workplans; led cross-functional teams.\n- **Attention to detail & results orientation** — consistently quantified, decision-ready output.\n\nExplore the **Skills** section of this dashboard — each skill links to the engagements that prove it.",
+      "Blanka's core skills, each evidenced by her track record:\n\n- **Strategic problem solving** — North Star and merchant-acquiring strategies worth €500M combined.\n- **Senior stakeholder management & communication** — trusted thought partner to C-suite, board and CXO-1 stakeholders.\n- **Data-driven analysis & decision-making** — €350M cost diagnostic; 1,600-target investment screen.\n- **Cross-functional team leadership & execution** — led project and cross-functional teams, independently driving workplans.\n\nExplore the **Skills** section of this dashboard — each skill links to the engagements that prove it.",
     source: "Skills & evidence",
     followups: ["What tools does she use?", "What has she achieved at McKinsey?"],
   },
