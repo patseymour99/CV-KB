@@ -179,7 +179,7 @@ const Charts = (() => {
       viewBox: `0 0 ${W} ${H}`, class: "viz-svg",
       role: "img",
       "aria-label": "Career timeline strip from 2018 to present: " +
-        spans.map((s) => `${s.label} ${s.start}–${s.end}`).join("; "),
+        spans.map((s) => (s.start ? `${s.label} ${s.start}–${s.end}` : s.label)).join("; "),
     }, container);
 
     // Year ticks (hairline, recessive)
@@ -196,7 +196,7 @@ const Charts = (() => {
       const y = top + (s.lane || 0) * (bandH + gap);
       const bx = x(s.startYear), bw = Math.max(8, x(s.endYear) - bx);
       const g = el("g", { class: "viz-row", tabindex: "0" }, svg);
-      g.setAttribute("aria-label", `${s.label}, ${s.start} to ${s.end}`);
+      g.setAttribute("aria-label", s.start ? `${s.label}, ${s.start} to ${s.end}` : s.label);
       el("rect", {
         x: bx, y, width: bw, height: bandH, rx: 4,
         fill: s.muted ? "var(--viz-muted-band)" : ramp[Math.min(i, ramp.length - 1)],
@@ -206,7 +206,7 @@ const Charts = (() => {
       const showTip = (cx, cy) =>
         tip.show(
           `<div class="viz-tip-value">${escText(s.label)}</div>` +
-          `<div class="viz-tip-sub">${escText(s.start)} – ${escText(s.end)} · ${escText(s.place)}</div>`,
+          `<div class="viz-tip-sub">${s.start ? `${escText(s.start)} – ${escText(s.end)} · ` : ""}${escText(s.place)}</div>`,
           cx, cy
         );
       g.addEventListener("pointermove", (e) => { g.classList.add("is-hover"); showTip(e.clientX, e.clientY); });

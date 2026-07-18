@@ -262,7 +262,7 @@
       { label: "PK Követeléskezelő — Finance Analyst", start: "Apr 2020", end: "Apr 2021", startYear: 2020.25, endYear: 2021.25, place: "Budapest", lane: 0 },
       { label: "McKinsey — Analyst → Specialist", start: "May 2021", end: "May 2025", startYear: 2021.33, endYear: 2025.33, place: "Budapest", lane: 0 },
       { label: "McKinsey — Manager", start: "Jun 2025", end: "Present", startYear: 2025.42, endYear: 2026.55, place: "London", lane: 0 },
-      { label: "Corvinus University of Budapest — BSc", start: "Sep 2018", end: "Jan 2022", startYear: 2018.67, endYear: 2022.08, place: "Budapest", lane: 1, muted: true },
+      { label: "Corvinus University of Budapest — BSc", startYear: 2018.67, endYear: 2022.08, place: "Budapest", lane: 1, muted: true },
     ], [2018, 2026.6]);
   }
 
