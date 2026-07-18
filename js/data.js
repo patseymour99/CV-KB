@@ -12,13 +12,14 @@ const PROFILE = {
   location: "London, UK",
   email: "kojiblanka36@gmail.com",
   phone: "+44 7483 513948",
+  website: "blanka-koji.vercel.app",
   summary:
-    "Strategy and banking specialist with 5+ years at McKinsey & Company, advising C-suite and board-level stakeholders at leading European and Middle Eastern banks on performance diagnostics, digital strategy and productivity. Trusted thought partner to senior leaders — bringing structure to complex topics, aligning stakeholders and using data-driven analysis to inform strategic decisions, prioritisation and execution.",
+    "Strategy and banking specialist with 5+ years at McKinsey & Company, advising C-suite and board-level stakeholders at leading European and Middle Eastern banks on AI strategy, performance diagnostics, distribution strategy and productivity. Trusted thought partner to senior leaders — bringing structure to complex topics, aligning stakeholders and using data-driven analysis to inform strategic decisions, prioritisation and execution.",
 
   // Hero KPI row — every figure traces back to a CV line (see `basis`).
   stats: [
     { id: "years",   value: 5,    suffix: "+",   label: "Years in strategy consulting", basis: "McKinsey, May 2021 – present" },
-    { id: "value",   value: 460,  prefix: "€", suffix: "M+", label: "Value identified across featured engagements", basis: "€300M + €100M + €60M" },
+    { id: "value",   value: 850,  prefix: "€", suffix: "M+", label: "Value identified across featured engagements", basis: "€300M + €350M + €200M" },
     { id: "roles",   value: 4,    suffix: "",    label: "Promotions in under 5 years", basis: "Intern → Analyst → Senior Analyst → Specialist → Manager" },
     { id: "fintech", value: 6600, suffix: "+",   label: "Fintechs mapped & screened", basis: "5,000+ database + 1,600 targets" },
   ],
@@ -36,8 +37,8 @@ const PROFILE = {
         "Support leading banks to improve productivity and digital performance — helping senior leadership teams identify value-creation opportunities, prioritise management actions and improve execution across complex transformation agendas.",
       highlights: [
         "Led a project team to develop a 5-year North Star strategy for a major European retail bank — board-level KPIs plus a tactical implementation roadmap, resulting in a €300M revenue uplift.",
-        "Quantified value-at-stake for a market-leading Kuwaiti bank's AI agenda, identifying ~20–30% operating-cost savings and ~5–8% revenue-uplift potential to inform senior leadership investment decisions.",
-        "Led the cost & productivity diagnostics workstream in a large Irish bank's transformation, identifying a €100M cost opportunity while independently driving the workplan and CXO-1 stakeholder alignment.",
+        "Developed the AI strategy for a market-leading Kuwaiti bank — quantifying value-at-stake and prioritising use cases across the bank, identifying ~20–30% operating-cost savings and ~5–8% revenue-uplift potential to inform senior leadership investment decisions.",
+        "Led the cost & productivity diagnostics workstream in a large Irish bank's transformation, identifying a €350M cost opportunity while independently driving the workplan and CXO-1 stakeholder alignment.",
       ],
       tags: ["Bank strategy", "AI value-at-stake", "Cost & productivity", "C-suite advisory"],
     },
@@ -53,16 +54,16 @@ const PROFILE = {
       summary:
         "Advised financial-services clients globally on banking and fintech strategy and M&A, and supported client development within the McKinsey EMEA Fintech Practice — engaging directly with fintech scale-up executives and investors.",
       highlights: [
-        "Developed a 5-year merchant-acquiring strategy for a market-leading CEE bank, using comprehensive diagnostics to identify key strategic opportunities and unlock €60M in incremental revenue potential.",
+        "Developed a 5-year merchant-acquiring strategy for a market-leading CEE bank, using comprehensive diagnostics to identify key strategic opportunities and unlock €200M in incremental revenue potential.",
         "Created a fintech investment strategy for a UAE investment company — built a database of 1,600 potential targets across fintech sub-sectors and shortlisted the 20 with the best investment fit.",
-        "Managed a cross-functional team to build McKinsey's database of 5,000+ fintech startups across 40+ sub-sectors, designed to surface innovation trends and streamline fintech M&A market scans.",
+        "Managed a cross-functional team to build an AI-powered tool covering 5,000+ fintech startups across 40+ sub-sectors, designed to identify innovation trends and streamline fintech M&A market scans.",
       ],
       tags: ["Fintech strategy", "M&A screening", "Payments", "Data products"],
     },
     {
       id: "pk-intern",
       org: "PK Követeléskezelő Zrt.",
-      role: "Finance Intern",
+      role: "Finance Analyst",
       start: "Apr 2020", end: "Apr 2021",
       startYear: 2020.25, endYear: 2021.25,
       location: "Budapest, Hungary",
@@ -70,7 +71,7 @@ const PROFILE = {
       summary:
         "Focused on debt-package sales and loan-portfolio transactions at a Hungarian debt-management firm.",
       highlights: [
-        "Performed market and cost-benefit analyses and collateral valuation in the acquisition of the firm's largest loan portfolio to date — 400+ loans.",
+        "Performed market and cost-benefit analyses and collateral valuation in the acquisition of the firm's largest loan portfolio to date — 1,000+ loans.",
         "Supported financial planning and forecasting, and prepared C-suite presentations on portfolio performance.",
       ],
       tags: ["Loan portfolios", "Valuation", "Financial planning"],
@@ -96,15 +97,15 @@ const PROFILE = {
     {
       id: "kuwait-ai",
       client: "Market-leading Kuwaiti bank",
-      name: "AI agenda value-at-stake",
+      name: "Bank-wide AI strategy",
       category: "ai",
       region: "Middle East",
-      role: "Value quantification lead",
+      role: "AI strategy development",
       valueEuroM: null,
       valueLabel: "20–30% opex savings · 5–8% revenue uplift potential",
       metric: { value: 30, unit: "%", kind: "Operating-cost saving potential" },
       description:
-        "Quantified the value-at-stake of the bank's AI agenda — sizing ~20–30% operating-cost savings and ~5–8% revenue-uplift potential to give senior leadership a fact base for investment decisions.",
+        "Developed the bank's AI strategy — quantifying value-at-stake and prioritising use cases to develop across the bank, sizing ~20–30% operating-cost savings and ~5–8% revenue-uplift potential to give senior leadership a fact base for investment decisions.",
       skills: ["Analytical rigour", "Strategic problem solving", "AI & automation"],
     },
     {
@@ -114,11 +115,11 @@ const PROFILE = {
       category: "cost",
       region: "Europe",
       role: "Workstream lead",
-      valueEuroM: 100,
-      valueLabel: "€100M cost opportunity",
-      metric: { value: 100, unit: "€M", kind: "Cost opportunity" },
+      valueEuroM: 350,
+      valueLabel: "€350M cost opportunity",
+      metric: { value: 350, unit: "€M", kind: "Cost opportunity" },
       description:
-        "Led the cost & productivity diagnostics workstream of a bank-wide transformation — identified a €100M cost opportunity while independently driving the workplan and aligning CXO-1 stakeholders.",
+        "Led the cost & productivity diagnostics workstream of a bank-wide transformation — identified a €350M cost opportunity while independently driving the workplan and aligning CXO-1 stakeholders.",
       skills: ["Analytical rigour", "Senior stakeholder communication", "Strong ownership"],
     },
     {
@@ -128,11 +129,11 @@ const PROFILE = {
       category: "strategy",
       region: "Europe",
       role: "Strategy development",
-      valueEuroM: 60,
-      valueLabel: "€60M incremental revenue potential",
-      metric: { value: 60, unit: "€M", kind: "Revenue potential" },
+      valueEuroM: 200,
+      valueLabel: "€200M incremental revenue potential",
+      metric: { value: 200, unit: "€M", kind: "Revenue potential" },
       description:
-        "Developed a 5-year merchant-acquiring strategy grounded in comprehensive diagnostics, identifying the strategic moves that unlock €60M in incremental revenue.",
+        "Developed a 5-year merchant-acquiring strategy grounded in comprehensive diagnostics, identifying the strategic moves that unlock €200M in incremental revenue.",
       skills: ["Strategic problem solving", "Analytical rigour", "Results orientation"],
     },
     {
@@ -152,7 +153,7 @@ const PROFILE = {
     {
       id: "fintech-db",
       client: "McKinsey EMEA Fintech Practice",
-      name: "Global fintech database",
+      name: "AI-powered fintech scan tool",
       category: "ma",
       region: "Global",
       role: "Cross-functional team lead",
@@ -160,7 +161,7 @@ const PROFILE = {
       valueLabel: "5,000+ startups · 40+ sub-sectors",
       metric: { value: 5000, unit: "", kind: "Startups mapped" },
       description:
-        "Managed a cross-functional team building McKinsey's database of 5,000+ fintech startups across 40+ sub-sectors — used to surface innovation trends and streamline M&A market scans.",
+        "Managed a cross-functional team building an AI-powered tool covering 5,000+ fintech startups across 40+ sub-sectors — used to identify innovation trends and streamline M&A market scans.",
       skills: ["Cross-functional execution", "Strong ownership", "AI & automation"],
     },
   ],
@@ -204,12 +205,12 @@ const PROFILE = {
   ],
 
   education: {
-    school: "Corvinus Business School",
+    school: "Corvinus University of Budapest",
     degree: "BSc in Business and Management (in English)",
     start: "Sep 2018", end: "Jan 2022",
     gpa: "4.5 / 5.0 cumulative GPA",
     highlights: [
-      "Received a state scholarship for scoring a 5.0/5.0 GPA in four consecutive semesters.",
+      "Received a state scholarship for scoring a 5.0/5.0 GPA in five consecutive semesters.",
       "Excelled in Strategy and Innovation, Corporate Finance and Managerial Accounting.",
     ],
   },
@@ -220,7 +221,7 @@ const PROFILE = {
     start: "Oct 2018", end: "Oct 2019",
     highlights: [
       "Sales Associate at one of Corvinus' biggest student associations, connecting top-performing students with corporate employers.",
-      "Led a team of 5 as Sales Project Manager for the 2019 Corvinus Career & Business Festival — 40+ corporate partners, 5,000+ attendees.",
+      "Led a team of 5 as Sales Project Manager for the 2019 Corvinus Career & Business Festival — 100+ corporate partners, 5,000+ attendees.",
     ],
   },
 
@@ -249,7 +250,7 @@ const CHAT_KB = [
     intents: [/who is blanka/, /tell me about (her|blanka|yourself)/, /(overview|summary|background|profile|introduc)/, /^about$/],
     keywords: { summary: 5, overview: 5, background: 4, introduction: 4, about: 3, profile: 4, who: 2, blanka: 1 },
     answer:
-      "**Blanka Koji** is a strategy and banking specialist with **5+ years at McKinsey & Company**, currently a **Manager in London**. She advises C-suite and board-level stakeholders at leading European and Middle Eastern banks on performance diagnostics, digital strategy and productivity.\n\nSenior leaders use her as a thought partner because she brings structure to complex topics, aligns stakeholders, and grounds strategic decisions in data-driven analysis.",
+      "**Blanka Koji** is a strategy and banking specialist with **5+ years at McKinsey & Company**, currently a **Manager in London**. She advises C-suite and board-level stakeholders at leading European and Middle Eastern banks on AI strategy, performance diagnostics, distribution strategy and productivity.\n\nSenior leaders use her as a thought partner because she brings structure to complex topics, aligns stakeholders, and grounds strategic decisions in data-driven analysis.",
     source: "Professional summary",
     followups: ["What has she achieved at McKinsey?", "What is her biggest engagement?", "How can I contact her?"],
   },
@@ -276,7 +277,7 @@ const CHAT_KB = [
     intents: [/biggest (win|achievement|impact|project|engagement)/, /(proudest|top|key|main) (achievement|accomplishment|result|project)/, /what has she (delivered|achieved|accomplished)/],
     keywords: { achievement: 5, achieved: 6, achieve: 5, accomplishment: 5, accomplished: 5, impact: 4, result: 4, delivered: 4, win: 3, value: 3, project: 3, engagement: 3, biggest: 3, best: 3, proud: 3 },
     answer:
-      "Across her featured engagements Blanka has identified **€460M+ in value** for banking clients:\n\n- **€300M revenue uplift** — led the team developing a 5-year North Star strategy for a major European retail bank, including board-level KPIs and an implementation roadmap.\n- **€100M cost opportunity** — led the cost & productivity diagnostics workstream in a large Irish bank's transformation, driving the workplan and CXO-1 alignment independently.\n- **€60M incremental revenue** — built a 5-year merchant-acquiring strategy for a market-leading CEE bank.\n- **20–30% opex savings potential** — quantified the value-at-stake of a leading Kuwaiti bank's AI agenda.",
+      "Across her featured engagements Blanka has identified **€850M+ in value** for banking clients:\n\n- **€300M revenue uplift** — led the team developing a 5-year North Star strategy for a major European retail bank, including board-level KPIs and an implementation roadmap.\n- **€350M cost opportunity** — led the cost & productivity diagnostics workstream in a large Irish bank's transformation, driving the workplan and CXO-1 alignment independently.\n- **€200M incremental revenue** — built a 5-year merchant-acquiring strategy for a market-leading CEE bank.\n- **20–30% opex savings potential** — developed a leading Kuwaiti bank's AI strategy, quantifying value-at-stake and prioritising use cases.",
     source: "Impact — featured engagements",
     followups: ["Tell me about the AI work", "What's her fintech background?"],
   },
@@ -285,7 +286,7 @@ const CHAT_KB = [
     intents: [/\bai\b/, /artificial intelligence/, /gen(erative)? ?ai/, /automation/],
     keywords: { ai: 5, artificial: 4, intelligence: 3, genai: 5, automation: 4, digital: 3, claude: 4, cursor: 4, technology: 2, tech: 2 },
     answer:
-      "AI shows up in Blanka's work in two ways:\n\n- **Advising on AI strategy** — she quantified the value-at-stake of a market-leading Kuwaiti bank's AI agenda, sizing **~20–30% operating-cost savings and ~5–8% revenue uplift** to inform leadership investment decisions.\n- **Practising it herself** — she uses **AI-assisted workflow automation with Claude Code and Cursor** in her day-to-day toolkit. This interactive dashboard (and the assistant you're talking to) was built as part of that practice.",
+      "AI shows up in Blanka's work in three ways:\n\n- **Advising on AI strategy** — she developed the AI strategy for a market-leading Kuwaiti bank, quantifying value-at-stake and prioritising use cases across the bank, sizing **~20–30% operating-cost savings and ~5–8% revenue uplift** to inform leadership investment decisions.\n- **Building with AI** — she managed a cross-functional team that built an **AI-powered tool covering 5,000+ fintech startups** to spot innovation trends and streamline M&A scans.\n- **Practising it herself** — she uses **AI-assisted workflow automation with Claude Code and Cursor** in her day-to-day toolkit. This interactive dashboard (and the assistant you're talking to) was built as part of that practice.",
     source: "Experience & Tools",
     followups: ["How was this site built?", "What other tools does she use?"],
   },
@@ -294,7 +295,7 @@ const CHAT_KB = [
     intents: [/fintech/, /m&a/, /payments|acquiring/, /start-?ups?/],
     keywords: { fintech: 5, startup: 4, startups: 4, payments: 4, acquiring: 4, merchant: 4, ma: 3, mna: 3, acquisition: 3, investment: 3, innovation: 3, database: 3, scaleup: 3 },
     answer:
-      "Fintech was the core of Blanka's Budapest years (2021–2025), within the **McKinsey EMEA Fintech Practice**:\n\n- Built a **fintech investment strategy for a UAE investment company** — a database of 1,600 potential targets, converged to a shortlist of the 20 best-fit.\n- Managed a cross-functional team building McKinsey's **database of 5,000+ fintech startups across 40+ sub-sectors**, used to spot innovation trends and streamline M&A scans.\n- Developed a **5-year merchant-acquiring strategy** for a market-leading CEE bank worth €60M in incremental revenue.\n\nShe worked directly with fintech scale-up executives and investors throughout.",
+      "Fintech was the core of Blanka's Budapest years (2021–2025), within the **McKinsey EMEA Fintech Practice**:\n\n- Built a **fintech investment strategy for a UAE investment company** — a database of 1,600 potential targets, converged to a shortlist of the 20 best-fit.\n- Managed a cross-functional team building an **AI-powered tool covering 5,000+ fintech startups across 40+ sub-sectors**, used to spot innovation trends and streamline M&A scans.\n- Developed a **5-year merchant-acquiring strategy** for a market-leading CEE bank worth €200M in incremental revenue.\n\nShe worked directly with fintech scale-up executives and investors throughout.",
     source: "Experience — Banking Innovation Specialist",
     followups: ["What did she do before McKinsey?", "What are her main strengths?"],
   },
@@ -303,7 +304,7 @@ const CHAT_KB = [
     intents: [/before mckinsey/, /first (job|role)/, /pk k/i, /debt|loan portfolio/],
     keywords: { before: 3, first: 3, intern: 3, internship: 3, debt: 4, loan: 4, portfolio: 3, pk: 4, finance: 2, valuation: 3 },
     answer:
-      "Before McKinsey, Blanka was a **Finance Intern at PK Követeléskezelő Zrt.** in Budapest (Apr 2020 – Apr 2021), a debt-management firm. She worked on debt-package sales and loan-portfolio transactions — including market and cost-benefit analysis and **collateral valuation for the firm's largest-ever portfolio acquisition (400+ loans)** — and prepared C-suite presentations on portfolio performance.",
+      "Before McKinsey, Blanka was a **Finance Analyst at PK Követeléskezelő Zrt.** in Budapest (Apr 2020 – Apr 2021), a debt-management firm. She worked on debt-package sales and loan-portfolio transactions — including market and cost-benefit analysis and **collateral valuation for the firm's largest-ever portfolio acquisition (1,000+ loans)** — and prepared C-suite presentations on portfolio performance.",
     source: "Experience — PK Követeléskezelő",
     followups: ["Where did she study?", "What has she achieved at McKinsey?"],
   },
@@ -312,7 +313,7 @@ const CHAT_KB = [
     intents: [/educat/, /universit|college|school|degree|study|studied/, /gpa|grades/],
     keywords: { education: 5, university: 4, college: 4, school: 3, degree: 4, study: 3, studied: 3, gpa: 5, corvinus: 5, bsc: 4, grades: 4, academic: 3, scholarship: 4 },
     answer:
-      "Blanka holds a **BSc in Business and Management (taught in English)** from **Corvinus Business School** in Budapest (2018–2022), graduating with a **4.5/5.0 cumulative GPA**.\n\nShe received a **state scholarship for scoring a perfect 5.0/5.0 GPA in four consecutive semesters**, and excelled in Strategy and Innovation, Corporate Finance and Managerial Accounting.",
+      "Blanka holds a **BSc in Business and Management (taught in English)** from **Corvinus University of Budapest** (2018–2022), graduating with a **4.5/5.0 cumulative GPA**.\n\nShe received a **state scholarship for scoring a perfect 5.0/5.0 GPA in five consecutive semesters**, and excelled in Strategy and Innovation, Corporate Finance and Managerial Accounting.",
     source: "Education",
     followups: ["What did she do alongside her studies?", "What languages does she speak?"],
   },
@@ -321,7 +322,7 @@ const CHAT_KB = [
     intents: [/extracurricular/, /business club/, /student (association|life)/, /leadership outside/],
     keywords: { extracurricular: 5, club: 4, student: 3, association: 3, festival: 4, volunteer: 3, budapest: 2, university: 1 },
     answer:
-      "Alongside her studies, Blanka was active in the **Budapest Business Club** (2018–2019), one of Corvinus' biggest student associations:\n\n- As **Sales Associate**, she connected top-performing students with corporate employers.\n- As **Sales Project Manager**, she led a team of 5 organising the **2019 Corvinus Career & Business Festival** — 40+ corporate partners and 5,000+ attendees.\n\nShe also volunteers as an **English tutor for primary-school children** in an underserved local community.",
+      "Alongside her studies, Blanka was active in the **Budapest Business Club** (2018–2019), one of Corvinus' biggest student associations:\n\n- As **Sales Associate**, she connected top-performing students with corporate employers.\n- As **Sales Project Manager**, she led a team of 5 organising the **2019 Corvinus Career & Business Festival** — 100+ corporate partners and 5,000+ attendees.\n\nShe also volunteers as an **English tutor for primary-school children** in an underserved local community.",
     source: "Extracurricular",
     followups: ["What are her interests?", "What are her main strengths?"],
   },
@@ -330,7 +331,7 @@ const CHAT_KB = [
     intents: [/skills?|strengths?|good at|competenc/],
     keywords: { skills: 5, strengths: 5, strong: 3, competencies: 4, qualities: 4, capable: 3, abilities: 4 },
     answer:
-      "Blanka's core strengths, each evidenced by her track record:\n\n- **Strategic problem solving** — North Star and merchant-acquiring strategies worth €360M combined.\n- **Analytical rigour** — €100M cost diagnostic; 1,600-target investment screen.\n- **Senior stakeholder communication** — trusted by C-suite, board and CXO-1 stakeholders.\n- **Strong ownership & cross-functional execution** — independently drove workplans; led cross-functional teams.\n- **Attention to detail & results orientation** — consistently quantified, decision-ready output.\n\nExplore the **Skills** section of this dashboard — each skill links to the engagements that prove it.",
+      "Blanka's core strengths, each evidenced by her track record:\n\n- **Strategic problem solving** — North Star and merchant-acquiring strategies worth €500M combined.\n- **Analytical rigour** — €350M cost diagnostic; 1,600-target investment screen.\n- **Senior stakeholder communication** — trusted by C-suite, board and CXO-1 stakeholders.\n- **Strong ownership & cross-functional execution** — independently drove workplans; led cross-functional teams.\n- **Attention to detail & results orientation** — consistently quantified, decision-ready output.\n\nExplore the **Skills** section of this dashboard — each skill links to the engagements that prove it.",
     source: "Skills & evidence",
     followups: ["What tools does she use?", "What has she achieved at McKinsey?"],
   },
@@ -366,7 +367,7 @@ const CHAT_KB = [
     intents: [/contact|reach|email|phone|call|get in touch|hire/],
     keywords: { contact: 5, email: 5, phone: 5, call: 4, reach: 4, touch: 4, number: 3, hire: 3, interview: 3, available: 3 },
     answer:
-      "You can reach Blanka directly:\n\n- **Email:** kojiblanka36@gmail.com\n- **Phone:** +44 7483 513948\n- **Location:** London, UK\n\nThe **Contact** button in the header also lets you copy her email or download a vCard in one click.",
+      "You can reach Blanka directly:\n\n- **Email:** kojiblanka36@gmail.com\n- **Phone:** +44 7483 513948\n- **Website:** blanka-koji.vercel.app\n- **Location:** London, UK\n\nThe **Contact** button in the header also lets you copy her email or download a vCard in one click.",
     source: "Contact details",
     followups: ["Give me a quick summary of her profile", "Why should we hire her?"],
   },
@@ -384,7 +385,7 @@ const CHAT_KB = [
     intents: [/why (should|would) (we|i|anyone) hire/, /what makes her (different|special|stand out)/, /unique|stand ?out|differentiator/],
     keywords: { hire: 5, why: 2, special: 4, unique: 4, different: 4, standout: 5, differentiator: 5, fit: 3, candidate: 3 },
     answer:
-      "Three things set Blanka apart:\n\n1. **Steep, proven trajectory** — 4 promotions in under 5 years at McKinsey, from intern to Manager, with a move from Budapest to the London office.\n2. **Quantified impact** — €460M+ of value identified across strategy, cost and AI engagements, always tied to decisions leadership actually took.\n3. **Consulting craft + modern tooling** — board-level communication and analytical rigour, combined with hands-on AI-assisted workflows (Claude Code, Cursor). This dashboard is a small proof of that mindset.",
+      "Three things set Blanka apart:\n\n1. **Steep, proven trajectory** — 4 promotions in under 5 years at McKinsey, from intern to Manager, with a move from Budapest to the London office.\n2. **Quantified impact** — €850M+ of value identified across strategy, cost and AI engagements, always tied to decisions leadership actually took.\n3. **Consulting craft + modern tooling** — board-level communication and analytical rigour, combined with hands-on AI-assisted workflows (Claude Code, Cursor). This dashboard is a small proof of that mindset.",
     source: "Synthesised from full profile",
     followups: ["What has she achieved at McKinsey?", "How can I contact her?"],
   },
